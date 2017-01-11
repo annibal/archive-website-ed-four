@@ -33,9 +33,75 @@ welcome {
             animation-fill-mode: forwards;
             animation-iteration-count: 1;
             animation-delay: 1s;
-            background-image: url('../img/whirl.png');
-            background-position: center center;
-            background-size: cover;
+            
+            position:relative;
+            
+            .ed4-ball-composite {
+                width: 75%;
+                height: 50%;
+                position: absolute;
+                border-radius: 100px 200px 0 100px;
+                transition: transform @animationSpeed cubic-bezier(0.63, 0.01, 0.52, 1.48), 
+                            clip-path @animationSpeed cubic-bezier(0.63, 0.01, 0.52, 1.48),
+                            webkit-clip-path @animationSpeed cubic-bezier(0.63, 0.01, 0.52, 1.48) ;
+            }
+            #ed4ball_fire2 {
+                width: 50%;
+                height: 50%;
+                -webkit-clip-path: polygon(50% -1200%, 0 50%, 100% 50%);
+                clip-path: polygon(50% -1200%, 0 50%, 100% 50%);
+                top: 0%;
+                z-index: 5;
+                left: 25%;
+                background: @red;
+                transform: rotate(-90deg);
+                border-radius: 100%;
+            }
+            #ed4ball_fire {
+                background: @red;
+                top: 0px;
+                right: 0px;
+                
+                &:hover {
+                    transform: rotate(0deg)translate(15%,-15%)scale(1.2);
+                }
+                
+                &:hover ~ #ed4ball_fire2 {
+                    transform: rotate(-90deg) translate(15%, 15%) scale(1.2);
+                    -webkit-clip-path: polygon(50% -1200%, 0 38%, 100% 50%);
+                    clip-path: polygon(50% -1200%, 0 38%, 100% 50%);
+                }
+            }
+            #ed4ball_water {
+                background: @blue;
+                transform: rotate(90deg);
+                top: 37.7%;
+                right: -12.5%;
+                
+                &:hover {
+                    transform: rotate(90deg)translate(15%,-15%)scale(1.2);
+                }
+            }
+            #ed4ball_air {
+                background: @yellow;
+                transform: rotate(180deg);
+                bottom: 0;
+                left: -0.3%;
+                
+                &:hover {
+                    transform: rotate(180deg)translate(15%,-15%)scale(1.2);
+                }
+            }
+            #ed4ball_earth {
+                background: @green;
+                transform: rotate(270deg);
+                bottom: 37.7%;
+                left: -12.5%;
+                
+                &:hover {
+                    transform: rotate(270deg)translate(15%,-15%)scale(1.2);
+                }
+            }
         }
     }
     
@@ -52,7 +118,7 @@ welcome {
             transform:translate(-50%, -50%)rotate(0deg);
         };
         100% {
-            transform:translate(-50%, -50%)rotate(360deg);
+            transform:translate(-50%, -50%)rotate(-360deg);
         };
     }
     @keyframes ed4ball{
@@ -61,11 +127,11 @@ welcome {
             opacity: 0;
         };
         80% {
-            transform:scale(1.1)rotate(360deg);
+            transform:scale(1.1)rotate(-360deg);
             opacity: 1;
         };
         100% {
-            transform:scale(1)rotate(432deg);
+            transform:scale(1)rotate(-432deg);
             opacity: 1;
         }
     }
