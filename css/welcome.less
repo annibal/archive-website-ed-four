@@ -1,0 +1,118 @@
+
+welcome {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 300px;
+    background: @black;
+    display: block;
+    
+    #ed4_ball {
+        position: absolute;
+        border-radius: 100%;
+        left:50%;
+        top:50%;
+        transform:translate(-50%, -50%);
+        animation:ed4ball_spin 1.8s linear, ed4ball_raise 1s linear;
+        animation-fill-mode: none, forwards;
+        animation-iteration-count: infinite, 1;
+        animation-delay: 3s, 3.5s;
+        
+        #ed4_ball_inner {
+            width: 30vw;
+            height: 30vw;
+            min-width: 200px;
+            min-height: 200px;
+            max-width: 370px;
+            max-height: 370px;
+            border-radius: 100%;
+            
+            transform:scale(0);
+            animation: ed4ball 2s linear;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-delay: 1s;
+            background-image: url('../img/whirl.png');
+            background-position: center center;
+            background-size: cover;
+        }
+    }
+    
+    @keyframes ed4ball_raise {
+        0% {
+            top:50%;
+        }
+        100% {
+            top:30%;
+        }
+    }
+    @keyframes ed4ball_spin{
+        0% {
+            transform:translate(-50%, -50%)rotate(0deg);
+        };
+        100% {
+            transform:translate(-50%, -50%)rotate(360deg);
+        };
+    }
+    @keyframes ed4ball{
+        0% {
+            transform:scale(0)rotate(0deg);
+            opacity: 0;
+        };
+        80% {
+            transform:scale(1.1)rotate(360deg);
+            opacity: 1;
+        };
+        100% {
+            transform:scale(1)rotate(432deg);
+            opacity: 1;
+        }
+    }
+    
+    
+    #ed4_title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: @white;
+        padding: 15px 30px;
+        border-radius: 20vw;
+        font-size: 90px;
+        @media (max-width: 450px) {
+            font-size: 17vw;
+        }
+        
+        opacity: 0;
+        animation:ed4_title 1s linear;
+        animation-fill-mode: forwards;
+        animation-delay: 3s;
+        
+        &:hover {
+            .pContrast(@red);
+            background: #C33636;
+            color: @pContrast;
+            box-shadow: inset 0px -5px 30px rgba(0, 0, 0, 0.5), inset 0px 5px 30px rgba(255, 255, 255, 0.3), inset 0px -5px 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition:all .4s ease;
+        }
+        
+        &:active {
+            box-shadow: inset 0px 5px 9px rgba(0, 0, 0, 0.5);
+            transition:none;
+            transform: translate(-50%, -50%)translateY(3px);
+        }
+    }
+    
+    @keyframes ed4_title {
+        0% {
+            opacity: 0;
+            top:45%;
+        }
+        100% {
+            opacity: 1;
+            top:75%;
+        }
+    }
+}

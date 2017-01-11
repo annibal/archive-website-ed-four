@@ -1,0 +1,58 @@
+nav {
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    width: 100%;
+    z-index: 80;
+    opacity: .1;
+    overflow-x: hidden;
+    transition: opacity @animationSpeed*2 ease;
+    
+    innernav {
+        position: relative;
+        width:200%;
+        display: block;
+    }
+    
+    &.scrolled {
+        opacity: 1;
+        background-color: @black;
+    }
+    
+    item {
+        a {
+            padding: 10px 15px;
+            float: left;
+            text-transform: lowercase;
+            transition: background @animationSpeed*3 ease;
+            
+            &.icon {
+                font-size: @font-size*2;
+            }
+            
+            .item-description {
+                overflow-x: hidden;
+                white-space: nowrap;
+                width: 0;
+                display: inline-block;
+                color:@white;
+                transition: width @animationSpeed ease;
+                transform: translateY(6px);
+            }
+            
+            &:hover {
+                background: @gray;
+                text-decoration: none;
+                transition: background @animationSpeed/8 ease;
+                
+                .item-description {
+                    @media (min-width: 450px) {
+                        transition: width @animationSpeed cubic-bezier(0.63, 0.01, 0.52, 1.48);
+                        width: 200px;   
+                    }
+                }
+            }
+        }
+    }
+}

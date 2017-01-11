@@ -1,0 +1,19 @@
+
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+.fade-out {
+    animation:fadeOut @animationSpeed linear;
+    animation-fill-mode: forwards;
+    .slow {
+        animation-duration: @animationSpeed*2;
+    }
+    .slower {
+        animation-duration: @animationSpeed*3;
+    }
+    .fast {
+        animation-duration: @animationSpeed/2;
+    }
+}
