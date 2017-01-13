@@ -53,7 +53,6 @@ onRealLoadCallbacks.push(function() {
         
         
         if (window.scrollY < Math.max(welcomeObj.offsetHeight,300) ) {
-            console.log("draw")
             // movingCamera.update();
             
             renderer.render( scene, camera );

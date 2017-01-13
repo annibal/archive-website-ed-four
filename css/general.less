@@ -10,6 +10,14 @@ bode {
     overflow-x: hidden;
 }
 
+* { outline: none; }
+
+.font-large { font-size: @font-size*2; }
+.font-xlarge { font-size: @font-size*3; }
+.font-xxlarge { font-size: @font-size*4; }
+.font-small { font-size: @font-size/2; }
+.font-xsmall { font-size: @font-size/3; }
+.font-xxsmall { font-size: @font-size/4; }
 
 .handwritten {
     font-family: Coming Soon, cursive;
@@ -29,5 +37,149 @@ a:hover {
     text-decoration: underline;
 }
 #edmundo,#edmar,#edsom,#fogo {
-    height: 1500px;
+    // height: 1500px;
+}
+
+
+#edmundo .swintab {
+    @thisColor : desaturate(darken(@green,30%),30%);
+    .pContrast(@thisColor);
+    background-color: @thisColor;
+    color:@pContrast;
+    
+    .edmundo-item {
+        width:220px;
+        border:1px solid @pContrast;
+        float:left;
+        
+        & + .edmundo-item {
+            margin-left: 10px;
+        }
+    }
+    
+}
+
+#edmar .swintab {
+    @thisColor : desaturate(darken(@blue,30%),30%);
+    .pContrast(@thisColor);
+    background-color: @thisColor;
+    color:@pContrast;
+    
+    .edmundo-item {
+        width:220px;
+        border:1px solid @pContrast;
+        float:left;
+        
+        & + .edmundo-item {
+            margin-left: 10px;
+        }
+    }
+    
+}
+
+#edsom .swintab {
+    @thisColor : desaturate(darken(@yellow,30%),30%);
+    .pContrast(@thisColor);
+    background-color: @thisColor;
+    color:@pContrast;
+    
+    .edmundo-item {
+        width:220px;
+        border:1px solid @pContrast;
+        float:left;
+        
+        & + .edmundo-item {
+            margin-left: 10px;
+        }
+    }
+    
+}
+
+
+
+.swintab {
+    @swintabTopSpace : 80px;
+    background-image: url(../img/tab_bg.svg), url(../img/white_dot.png);
+    background-position: 60% @swintabTopSpace, 0px 0px;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 2000px 300px, 100% @swintabTopSpace;
+    position: relative;
+    padding-top: @swintabTopSpace + 25px;
+    padding-bottom: @swintabTopSpace;
+    
+    .swintab-image-container {
+        float: left;
+        width: 40%;
+        margin-right: 15%;
+        text-align: center;
+        position: relative;
+        
+        img {
+            height: 270px;
+        }
+    }
+    .swintab-content {
+        position: relative;
+        height: 270px;
+        float: left;
+        width: 45%;
+    }
+    
+    .swintab-below {
+        float: none;
+        clear: both;
+        position: relative;
+        padding:@swintabTopSpace/2 20px;
+    }
+    
+    &.swintab-right {
+        transform: scaleX(-1);
+        
+        .swintab-image {
+            transform: scaleX(-1);
+        }
+        .swintab-content {
+            transform: scaleX(-1);
+            text-align:right;
+        }
+        .swintab-below {
+            transform: scaleX(-1);
+        }
+    }
+    
+    @media(max-width: 768px) {
+        background-image:none;
+        transform: none !important;
+        
+        .swintab-image-container {
+            transform: none !important;
+            width:100%;
+            margin: none;
+        }
+        .swintab-content {
+            transform: none !important;
+            width:100%;
+            padding: 0 10px;
+            height: auto;
+            text-align:left !important;
+        }
+    }
+}
+
+
+footer {
+    display: block;
+    background: @darkGray;
+    color:@almostWhite;
+    height: 100px;
+    line-height: 30px;
+    text-align: center;
+    padding-top: 20px;
+    transition: background .4s ease;
+}
+footer:hover {
+    background: darken(turquoise,35%);
+}
+footer a {
+    color:white;
 }

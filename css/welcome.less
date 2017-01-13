@@ -140,12 +140,16 @@ welcome {
     #ed4_title {
         position: absolute;
         top: 50%;
+        white-space: nowrap; 
         left: 50%;
         transform: translate(-50%, -50%);
         background: @white;
         padding: 15px 30px;
         border-radius: 20vw;
         font-size: 90px;
+        @media (max-width: 850px) {
+            font-size: 10vw;
+        }
         @media (max-width: 450px) {
             font-size: 17vw;
         }
