@@ -1,14 +1,19 @@
 .sidescroller {
     overflow:hidden;
+    user-select: none;
 }
 .sidescroller-inner {
     width:100%;
     overflow-x: scroll;
     padding-bottom: 50px;
-    margin-bottom: -50px
+    margin-bottom: -50px;
+    cursor:-webkit-grab;
+}
+.sidescroller-inner.scrolling {
+    cursor:-webkit-grabbing;
 }
 .sidescroller-content {
-    min-width:150em;
+    min-width:250em;
 }
 
 .box-container {
@@ -24,4 +29,6 @@
 	box-sizing:border-box;
 	position:  absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
+    background-position: center center;
+    background-size: cover;
 }
